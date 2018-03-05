@@ -26,12 +26,9 @@ module VagrantPlugins
             raise OVAError.new :provider_not_supported
           end
 
-          date_str = DateTime.now.strftime("%Y%m%d%H%M")
-          filename = machine.name + date_str + ".ova"
-
-          run "VBoxManage modifyvm " + machine.id +  " --uartmode1 disconnected"
-          run "VBoxManage sharedfolder remove " + machine.id + " --name vagrant"
-          run "VBoxManage export " + machine.id + " --output " + filename
+          system "VBoxManage modifyvm " + machine.id +  " --uartmode1 disconnected"
+          system "VBoxManage sharedfolder remove " + machine.id + " --name vagrant"
+          system "VBoxManage export " + machine.id + " --output " + machine.name.id2name + ".ova"
         end
 
         # Success, exit status 0
