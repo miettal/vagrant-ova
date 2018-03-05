@@ -1,0 +1,7 @@
+en:
+  vagrant-ova:
+    errors:
+      vm_is_running: |-
+        VM is running. Run `vagrant halt`
+      provider_not_supported: |-
+        vagrant-ova does not support this provider.
